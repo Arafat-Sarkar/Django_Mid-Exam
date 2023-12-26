@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+ {% load static %}
+
+{% block content %}
+
+
+<div class="d-flex flex-wrap px-5 pt-3 align-items-center">
+
+  <div class="col-6">
+    <h1>Welcome CarSellig </h1>
+    <p>It seems like there might be a bit of confusion or a typo in your request. It looks like you're asking about "carselling AR opor paragararp deo." However, it's not entirely clear what you're looking for. Could you please provide more details or clarify your request? Are you looking for information about selling a car, AR (Augmented Reality) technology, or something else? This will help me provide you with the information or assistance you need.
+
+    </p>
+  </div>
+  <div class="col-6">
+<img src="{% static 'heder.jpg' %}" />
+  </div>
+</div>
+
+
+ <div class = 'container justify-content-center '>
+
+    {% for dt in BrandName %}
+   
+    <input type="radio " class="btn-check   " name="options" id="option1" autocomplete="off" checked>
+    <label class="btn btn-secondary bg-dark " for="option1">
+        <a href="{% url 'brand_wise_post' dt.slug %}" class="text-decoration-none text-white" >{{dt.Brand_Name}}</a>
+    </label>
+    
+    {% endfor %}
+    
+</div> 
+
+<div class=" d-flex flex-wrap justify-content-center px-5 pt-5 ">
+  <h3> Total Car:  {{data | length}}</h3>
+    {% for post in data %}
+        <div class="col-sm-3 ">
+          <div class="card mx-3">
+            <div class="card-body">
+                <img src="{{post.img.url}}" class="card-img-top" alt="...">
+              <h4 class="card-title"> Car Name: {{post.Car_Name }}</h4>
+              <p class="card-title"> Car Model :{{post.Car_Model}}</p>
+              <p class="card-text"> Price: {{post.price}}</p>
+              <p class="card-title"> Brand Name:{{post.Brand.Brand_Name }}</p>
+             
+              <a href="{% url 'detalisPage' post.id %}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+       
+      
+    
+    {% endfor %}
+    
+    </div>
+    
+{% endblock  %}

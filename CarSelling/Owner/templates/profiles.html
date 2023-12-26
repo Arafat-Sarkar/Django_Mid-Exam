@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class=" d-flex flex-wrap justify-content-center px-5 pt-5 ">
+      {% for post in data %}
+          <div class="col-sm-3 ">
+            <div class="card mx-3">
+              <div class="card-body">
+                  <img src="{{post.owner.img.url}}" class="card-img-top" alt="...">
+                  <h4 class="card-title"> Car Name: {{post.Owner_Name }}</h4>
+                <h4 class="card-title"> Car Name: {{post.owner.Car_Name }}</h4>
+                <p class="card-title"> Car Model :{{post.owner.Car_Model}}</p>
+                <p class="card-text"> Price: {{post.owner.price}}</p>
+                <p class="card-title"> Brand Name:{{post.owner.Brand.Brand_Name }}</p>
+            
+              </div>
+            </div>
+          </div>
+         
+        
+      
+      {% endfor %}
+      
+      </div>
+
+
+{% endblock  %}
